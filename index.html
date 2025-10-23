@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Частный юрист Дьяков Александр Владимирович - профессиональная юридическая помощь</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Базовые стили и сброс */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #0B3B5B;
+            --accent-color: #2E8B57;
+            --accent-hover: #26734a;
+            --background-color: #F8F9FA;
+            --text-color: #212529;
+            --light-color: #ffffff;
+            --gray-light: #e9ecef;
+            --telegram-color: #0088cc;
+            --whatsapp-color: #25D366;
+            --viber-color: #7360F2;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Шапка */
+        header {
+            background: var(--primary-color);
+            color: var(--light-color);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo h1 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 0.2rem;
+        }
+
+        .logo p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-bottom: 0.2rem;
+        }
+
+        .logo-phone {
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+
+        .logo-phone a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .logo-phone a:hover {
+            text-decoration: underline;
+        }
+
+        /* Компактная шапка при скролле */
+        header.compact {
+            padding: 0.5rem 0;
+        }
+
+        header.compact .logo h1 {
+            font-size: 1.2rem;
+            margin-bottom: 0;
+        }
+
+        header.compact .logo p {
+            display: none;
+        }
+
+        header.compact .logo-phone {
+            font-size: 0.8rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 2rem;
+        }
+
+        nav ul li a {
+            color: var(--light-color);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--light-color);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Модальное окно для телефона */
+        .phone-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .phone-modal.show {
+            display: flex;
+        }
+
+        .phone-modal-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            max-width: 400px;
+            width: 90%;
+        }
+
+        .phone-modal-icon {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .phone-modal-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .phone-number {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            margin: 1.5rem 0;
+            padding: 1rem;
+            background: var(--gray-light);
+            border-radius: 8px;
+            border: 2px solid var(--accent-color);
+        }
+
+        .phone-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1.5rem;
+        }
+
+        .phone-btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .phone-btn.call {
+            background: var(--accent-color);
+            color: white;
+        }
+
+        .phone-btn.call:hover {
+            background: var(--accent-hover);
+        }
+
+        .phone-btn.copy {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .phone-btn.copy:hover {
+            background: #0a2e46;
+        }
+
+        .phone-btn.close {
+            background: #6c757d;
+            color: white;
+        }
+
+        .phone-btn.close:hover {
+            background: #545b62;
+        }
+
+        /* Карта */
+        .map-container {
+            margin-top: 2rem;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            height: 300px;
+            position: relative;
+        }
+
+        #map {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .map-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            padding: 2rem 1rem 1rem;
+            color: white;
+            text-align: center;
+        }
+
+        .map-btn {
+            display: inline-block;
+            background: var(--accent-color);
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 0.5rem;
+            transition: all 0.3s;
+        }
+
+        .map-btn:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+
+        /* Главный баннер */
+        .hero {
+            background: linear-gradient(135deg, rgba(11, 59, 91, 0.9) 0%, rgba(26, 82, 118, 0.9) 100%), 
+                        url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--light-color);
+            padding: 150px 0 100px;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--accent-color);
+            color: var(--light-color);
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn:disabled {
+            background: #cccccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Услуги */
+        .services {
+            padding: 80px 0;
+            background: var(--light-color);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary-color);
+            font-size: 2.2rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--light-color);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            border-left: 4px solid var(--accent-color);
+            text-align: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        /* О юристе */
+        .about {
+            padding: 80px 0;
+            background: var(--gray-light);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-photo {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            border: 5px solid var(--light-color);
+        }
+
+        .about-text h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1rem;
+            background: var(--light-color);
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+
+        /* Гарантии */
+        .guarantees {
+            padding: 80px 0;
+            background: var(--primary-color);
+            color: var(--light-color);
+        }
+
+        .guarantees-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .guarantee-card {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .guarantee-icon {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        /* Контакты */
+        .contacts {
+            padding: 80px 0;
+            background: var(--light-color);
+        }
+
+        .contacts-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-info {
+            background: var(--primary-color);
+            color: var(--light-color);
+            padding: 2rem;
+            border-radius: 8px;
+            background-image: linear-gradient(135deg, var(--primary-color) 0%, #1a5276 100%);
+        }
+
+        .contact-form {
+            background: var(--gray-light);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: var(--text-color);
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 5px rgba(11, 59, 91, 0.3);
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .contact-details {
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-icon {
+            font-size: 1.2rem;
+            margin-right: 1rem;
+            color: var(--accent-color);
+            width: 20px;
+            margin-top: 0.2rem;
+        }
+
+        .contact-text {
+            flex: 1;
+        }
+
+        .contact-text a {
+            color: var(--light-color);
+            text-decoration: none;
+        }
+
+        .contact-text a:hover {
+            text-decoration: underline;
+        }
+
+        .messengers {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .messenger-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+
+        .messenger-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .telegram { background: var(--telegram-color); }
+        .whatsapp { background: var(--whatsapp-color); }
+        .viber { background: var(--viber-color); }
+
+        .address-card {
+            background: rgba(255,255,255,0.1);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .consultation-types {
+            background: rgba(255,255,255,0.1);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+        }
+
+        .consultation-type {
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .consultation-type:last-child {
+            margin-bottom: 0;
+            border-bottom: none;
+        }
+
+        /* Уведомления */
+        .notification {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            color: white;
+            font-weight: bold;
+            z-index: 1001;
+            transform: translateX(400px);
+            transition: transform 0.3s ease;
+            max-width: 300px;
+        }
+
+        .notification.show {
+            transform: translateX(0);
+        }
+
+        .notification.success {
+            background: var(--accent-color);
+        }
+
+        .notification.error {
+            background: #dc3545;
+        }
+
+        .loader {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid var(--accent-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-right: 10px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Футер */
+        footer {
+            background: var(--primary-color);
+            color: var(--light-color);
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--primary-color);
+                flex-direction: column;
+                padding: 1rem 0;
+            }
+
+            nav ul.show {
+                display: flex;
+            }
+
+            nav ul li {
+                margin: 0;
+                text-align: center;
+                padding: 0.5rem 0;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .contacts-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding: 120px 0 80px;
+            }
+
+            header.compact .logo-phone {
+                display: none;
+            }
+
+            .phone-actions {
+                flex-direction: column;
+            }
+
+            .phone-btn {
+                width: 100%;
+            }
+
+            .map-container {
+                height: 250px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .service-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Модальное окно для телефона -->
+    <div class="phone-modal" id="phoneModal">
+        <div class="phone-modal-content">
+            <div class="phone-modal-icon">
+                <i class="fas fa-phone"></i>
+            </div>
+            <h3 class="phone-modal-title">Позвонить юристу</h3>
+            <div class="phone-number" id="modalPhoneNumber">+7 (903) 420-55-05</div>
+            <div class="phone-actions">
+                <button class="phone-btn call" onclick="callPhone()">
+                    <i class="fas fa-phone"></i> Позвонить
+                </button>
+                <button class="phone-btn copy" onclick="copyPhoneNumber()">
+                    <i class="fas fa-copy"></i> Скопировать
+                </button>
+                <button class="phone-btn close" onclick="closePhoneModal()">
+                    <i class="fas fa-times"></i> Закрыть
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Уведомления -->
+    <div id="notification" class="notification"></div>
+
+    <!-- Шапка -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1><i class="fas fa-balance-scale"></i> Дьяков Александр Владимирович</h1>
+                    <p>Частный юрист</p>
+                    <div class="logo-phone">
+                        <a href="tel:+79034205505">+7 (903) 420-55-05</a>
+                    </div>
+                </div>
+                <button class="mobile-menu-btn">☰</button>
+                <nav>
+                    <ul id="nav-menu">
+                        <li><a href="#services">Услуги</a></li>
+                        <li><a href="#about">О юристе</a></li>
+                        <li><a href="#guarantees">Гарантии</a></li>
+                        <li><a href="#contacts">Контакты</a></li>
+                        <li><a href="#" class="btn" id="callBtn">Позвонить</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Главный баннер -->
+    <section class="hero">
+        <div class="container">
+            <h2>Профессиональная юридическая помощь</h2>
+            <p>Представление интересов в судах, защита прав граждан и бизнеса. Бесплатная первичная консультация.</p>
+            <a href="#contacts" class="btn">Получить консультацию</a>
+        </div>
+    </section>
+
+    <!-- Услуги -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Мои услуги</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Семейные дела</h3>
+                    <p>Развод, раздел имущества, алименты, установление порядка общения с ребенком и другие семейные споры.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <h3>Защита прав потребителей</h3>
+                    <p>Споры с автодилерами, застройщиками, возврат некачественного товара, компенсация за некачественные услуги.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-gavel"></i>
+                    </div>
+                    <h3>Суды и споры</h3>
+                    <p>Ведение дел в судах всех инстанций, жилищные, земельные, гражданские и арбитражные споры.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-car-crash"></i>
+                    </div>
+                    <h3>Споры со страховыми и по ДТП</h3>
+                    <p>Получение максимального страхового возмещения, полное сопровождение дел, связанных со страховыми выплатами.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <h3>Споры с банками</h3>
+                    <p>Споры по займам, кредитным долгам, взыскание задолженности, защита от коллекторов.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <h3>Юридическое сопровождение</h3>
+                    <p>Составление исковых заявлений, жалоб, договоров, заявлений. Подача жалоб на госорганы и должностных лиц.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- О юристе -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">Обо мне</h2>
+            <div class="about-content">
+                <div>
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" 
+                         alt="Дьяков Александр Владимирович - частный юрист" class="about-photo">
+                </div>
+                <div class="about-text">
+                    <h2>Дьяков Александр Владимирович</h2>
+                    <p>Частный юрист с многолетним опытом работы в области гражданского, семейного и арбитражного права.</p>
+                    <p>Специализируюсь на комплексном решении юридических проблем физических лиц и предпринимателей. В моей практике - успешное ведение сложных дел в судах различных инстанций.</p>
+                    <p>Основные принципы работы: прозрачность, конфиденциальность, нацеленность на результат.</p>
+                    <p>Предоставляю бесплатные первичные консультации для анализа вашей ситуации и выработки оптимального плана действий.</p>
+                    
+                    <div class="stats">
+                        <div class="stat-item">
+                            <div class="stat-number">10+</div>
+                            <div>лет опыта</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">500+</div>
+                            <div>успешных дел</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">95%</div>
+                            <div>выигранных споров</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Гарантии -->
+    <section id="guarantees" class="guarantees">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">Мои гарантии</h2>
+            <div class="guarantees-grid">
+                <div class="guarantee-card">
+                    <div class="guarantee-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3>Конфиденциальность</h3>
+                    <p>Полная защита вашей личной информации и коммерческой тайны</p>
+                </div>
+                <div class="guarantee-card">
+                    <div class="guarantee-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Честность</h3>
+                    <p>Прозрачные условия сотрудничества и честная оценка перспектив дела</p>
+                </div>
+                <div class="guarantee-card">
+                    <div class="guarantee-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3>Результат</h3>
+                    <p>Работа на достижение максимально положительного результата для клиента</p>
+                </div>
+                <div class="guarantee-card">
+                    <div class="guarantee-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Сроки</h3>
+                    <p>Соблюдение согласованных сроков и оперативное решение вопросов</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Контакты -->
+    <section id="contacts" class="contacts">
+        <div class="container">
+            <h2 class="section-title">Контакты</h2>
+            <div class="contacts-grid">
+                <div class="contact-info">
+                    <h3>Контактная информация</h3>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-phone contact-icon"></i>
+                            <div class="contact-text">
+                                <strong>Телефон:</strong><br>
+                                <a href="tel:+79034205505">+7 (903) 420-55-05</a>
+                                <div class="messengers">
+                                    <a href="https://t.me/79034205505" class="messenger-btn telegram" title="Написать в Telegram">
+                                        <i class="fab fa-telegram"></i>
+                                    </a>
+                                    <a href="https://wa.me/79034205505" class="messenger-btn whatsapp" title="Написать в WhatsApp">
+                                        <i class="fab fa-whatsapp"></i>
+                                    </a>
+                                    <a href="viber://chat?number=79034205505" class="messenger-btn viber" title="Написать в Viber">
+                                        <i class="fab fa-viber"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope contact-icon"></i>
+                            <div class="contact-text">
+                                <strong>Email:</strong><br>
+                                <a href="mailto:89034205505@mail.ru">89034205505@mail.ru</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-clock contact-icon"></i>
+                            <div class="contact-text">
+                                <strong>Режим работы:</strong><br>
+                                Пн-Пт: с 09:00 до 18:00<br>
+                                Сб-Вс: выходной
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="address-card">
+                        <h4><i class="fas fa-map-marker-alt" style="color: var(--accent-color); margin-right: 0.5rem;"></i> Адрес офиса:</h4>
+                        <p>
+                            <strong>г. Воронеж, Проспект Революции, 1А</strong><br>
+                            Кабинет 18 (первый этаж)
+                        </p>
+                    </div>
+
+                    <div class="consultation-types">
+                        <h4>Формат консультаций:</h4>
+                        <div class="consultation-type">
+                            <i class="fas fa-video" style="color: var(--accent-color); margin-right: 0.5rem;"></i>
+                            <strong>Онлайн</strong> - по телефону или видеосвязи
+                        </div>
+                        <div class="consultation-type">
+                            <i class="fas fa-map-marker-alt" style="color: var(--accent-color); margin-right: 0.5rem;"></i>
+                            <strong>В офисе</strong> - по адресу указанному выше
+                        </div>
+                    </div>
+
+                    <!-- Интерактивная карта с правильными координатами -->
+                    <div class="map-container">
+                        <iframe 
+                            id="map"
+                            src="https://yandex.ru/map-widget/v1/?ll=39.215918%2C51.680716&z=17&pt=39.215918%2C51.680716%2Cpm2orgl&l=map"
+                            frameborder="0"
+                            allowfullscreen
+                            aria-label="Карта расположения офиса на Проспекте Революции, 1А">
+                        </iframe>
+                        <div class="map-overlay">
+                            <p>Офис в центре Воронежа</p>
+                            <a href="https://yandex.ru/maps/193/voronezh/?ll=39.215918%2C51.680716&mode=search&oid=1124717905&ol=biz&z=17.15" 
+                               target="_blank" 
+                               class="map-btn">
+                                <i class="fas fa-external-link-alt"></i> Открыть в Яндекс.Картах
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Записаться на консультацию</h3>
+                    <form id="consultation-form">
+                        <div class="form-group">
+                            <label for="name">Ваше имя</label>
+                            <input type="text" id="name" name="name" required placeholder="Введите ваше имя">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Телефон</label>
+                            <input type="tel" id="phone" name="phone" required placeholder="+7 (XXX) XXX-XX-XX">
+                        </div>
+                        <div class="form-group">
+                            <label for="consultation-type">Предпочтительный формат</label>
+                            <select id="consultation-type" name="consultation-type" required>
+                                <option value="">Выберите формат консультации</option>
+                                <option value="online">Онлайн консультация</option>
+                                <option value="office">Консультация в офисе (Воронеж)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Краткое описание вопроса</label>
+                            <textarea id="message" name="message" required placeholder="Опишите вашу ситуацию..."></textarea>
+                        </div>
+                        <button type="submit" class="btn" id="submit-btn">
+                            Отправить заявку
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Частный юрист Дьяков Александр Владимирович. Все права защищены.</p>
+            <p style="margin-top: 1rem; opacity: 0.8;">
+                <i class="fas fa-balance-scale"></i> Профессиональная юридическая помощь в Воронеже
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Конфигурация Telegram бота - ВАШИ ДАННЫЕ
+        const TELEGRAM_BOT_TOKEN = '8373655998:AAFkGxMxxMzx0G8PH3dMefCyGGdz8qYaxTE';
+        const TELEGRAM_CHAT_ID = '4884207383';
+        const PHONE_NUMBER = '+79034205505';
+        const PHONE_DISPLAY = '+7 (903) 420-55-05';
+
+        // Инициализация карты с правильными координатами
+        function initMap() {
+            console.log('Карта загружена с координатами: 51.680716, 39.215918');
+        }
+
+        // Проверка устройства
+        function isMobileDevice() {
+            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini
